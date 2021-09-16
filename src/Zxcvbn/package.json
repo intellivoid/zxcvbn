@@ -42,6 +42,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/DictionaryMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {

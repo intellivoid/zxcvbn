@@ -33,4 +33,15 @@
             return $result;
         }
 
+        /**
+         * Gets the file data path
+         *
+         * @param string $name
+         * @return string
+         */
+        public static function getDataFilePath(string $name): string
+        {
+            return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $name;
+        }
+
     }
