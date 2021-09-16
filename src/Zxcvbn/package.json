@@ -26,11 +26,19 @@
         },
         {
             "required": true,
+            "file": "Classes/FeedbackUtilities.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Matcher.php"
         },
         {
             "required": true,
             "file": "Classes/Matchers/Bruteforce.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matchers/DateMatch.php"
         },
         {
             "required": true,
@@ -47,6 +55,10 @@
         {
             "required": true,
             "file": "Interfaces/MatchInterface.php"
+        },
+        {
+            "required": true,
+            "file": "Objects/Feedback.php"
         },
         {
             "required": true,

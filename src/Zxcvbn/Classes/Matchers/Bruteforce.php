@@ -5,6 +5,7 @@ namespace Zxcvbn\Classes\Matchers;
 
     use Zxcvbn\Abstracts\BaseMatch;
     use Zxcvbn\Abstracts\Score;
+    use Zxcvbn\Objects\Feedback;
 
     class Bruteforce extends BaseMatch
     {
@@ -25,15 +26,12 @@ namespace Zxcvbn\Classes\Matchers;
 
         /**
          * @param bool $isSoleMatch
-         * @return array
+         * @return Feedback
+         * @noinspection PhpUnusedParameterInspection
          */
-        public function getFeedback($isSoleMatch): array
+        public function getFeedback(bool $isSoleMatch): Feedback
         {
-            return [
-                'warning' => "",
-                'suggestions' => [
-                ]
-            ];
+            return new Feedback();
         }
 
         /**

@@ -14,7 +14,7 @@
          *
          * @return array Array of Match objects
          */
-        public static function match(string $password, array $userInputs = []): array;
+        public static function match(string $password, array $userInputs = []);
 
         /**
          * @return integer
