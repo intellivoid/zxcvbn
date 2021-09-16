@@ -46,6 +46,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/L33tMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {

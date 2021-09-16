@@ -7,6 +7,7 @@
     use Zxcvbn\Abstracts\BaseMatch;
     use Zxcvbn\Classes\Matcher;
     use Zxcvbn\Classes\Utilities;
+    use Zxcvbn\Objects\Feedback;
 
     class DictionaryMatch extends BaseMatch
     {
@@ -115,25 +116,22 @@
 
         /**
          * @param $isSoleMatch
-         * @return array
+         * @return Feedback
          */
-        public function getFeedback($isSoleMatch): array
+        public function getFeedback($isSoleMatch): Feedback
         {
             $startUpper = '/^[A-Z][^A-Z]+$/u';
             $allUpper = '/^[^a-z]+$/u';
 
-            $feedback = [
-                'warning' => $this->getFeedbackWarning($isSoleMatch),
-                'suggestions' => []
-            ];
+            $feedback = new Feedback($this->getFeedbackWarning($isSoleMatch));
 
             if (preg_match($startUpper, $this->token))
             {
-                $feedback['suggestions'][] = "Capitalization doesn't help very much";
+                $feedback->Suggestions[] = "Capitalization doesn't help very much";
             }
             elseif (preg_match($allUpper, $this->token) && mb_strtolower($this->token) != $this->token)
             {
-                $feedback['suggestions'][] = "All-uppercase is almost as easy to guess as all-lowercase";
+                $feedback->Suggestions[] = "All-uppercase is almost as easy to guess as all-lowercase";
             }
 
             return $feedback;
