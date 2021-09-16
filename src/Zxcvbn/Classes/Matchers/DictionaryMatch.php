@@ -232,7 +232,7 @@
         {
             if (empty(self::$rankedDictionaries))
             {
-                $json = file_get_contents(dirname(__FILE__) . '/frequency_lists.json');
+                $json = file_get_contents(Utilities::getDataFilePath('frequency_lists.json'));
                 $data = json_decode($json, true);
 
                 $rankedLists = [];
