@@ -21,5 +21,9 @@
             "file": "zxcvbn.php"
         }
     ],
-    "files": []
+    "files": [
+        "data/adjacency_graphs.json",
+        "data/frequency_lists.json",
+        "package.json"
+    ]
 }
