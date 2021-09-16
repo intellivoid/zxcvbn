@@ -16,7 +16,7 @@ namespace Zxcvbn\Classes\Matchers;
          * @param array $userInputs
          * @return Bruteforce[]
          */
-        public static function match($password, array $userInputs = []): array
+        public static function match(string $password, array $userInputs = []): array
         {
             // Matches entire string.
             $match = new static($password, 0, mb_strlen($password) - 1, $password);

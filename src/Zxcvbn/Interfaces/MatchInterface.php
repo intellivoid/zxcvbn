@@ -14,15 +14,15 @@
          *
          * @return array Array of Match objects
          */
-        public static function match($password, array $userInputs = []);
+        public static function match(string $password, array $userInputs = []): array;
 
         /**
          * @return integer
          */
-        public function getGuesses();
+        public function getGuesses(): int;
 
         /**
          * @return float
          */
-        public function getGuessesLog10();
+        public function getGuessesLog10(): float;
     }
