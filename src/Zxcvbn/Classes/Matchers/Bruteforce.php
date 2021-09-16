@@ -1,6 +1,6 @@
-<?php
+<?php /** @noinspection PhpMissingFieldTypeInspection */
 
-    namespace Zxcvbn\Classes\Matchers;
+namespace Zxcvbn\Classes\Matchers;
 
 
     use Zxcvbn\Abstracts\BaseMatch;
@@ -9,10 +9,6 @@
     class Bruteforce extends BaseMatch
     {
         public const BRUTEFORCE_CARDINALITY = 10;
-
-        /**
-         * @var string
-         */
         public $pattern = 'bruteforce';
 
         /**
