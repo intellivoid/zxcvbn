@@ -11,7 +11,7 @@
          * @param callable $value_compare_func
          * @return bool
          */
-        public static function usort(array &$array, callable $value_compare_func)
+        public static function usort(array &$array, callable $value_compare_func): bool
         {
             $index = 0;
 

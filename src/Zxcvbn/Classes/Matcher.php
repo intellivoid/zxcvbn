@@ -1,14 +1,16 @@
 <?php
 
+    /** @noinspection PhpMissingFieldTypeInspection */
+
     namespace Zxcvbn\Classes;
 
-
+    use InvalidArgumentException;
+    use Zxcvbn\Abstracts\BaseMatch;
     use Zxcvbn\Interfaces\MatchInterface;
 
     class Matcher
     {
         private const DEFAULT_MATCHERS = [];
-
         private $additionalMatchers = [];
 
         /**
@@ -16,25 +18,23 @@
          *
          * @param string $password  Password string to match
          * @param array $userInputs Array of values related to the user (optional)
-         * @code array('Alice Smith')
-         * @endcode
-         *
          * @return MatchInterface[] Array of Match objects.
-         *
-         * @see  zxcvbn/src/matching.coffee::omnimatch
+         * @noinspection PhpUnused
          */
-        public function getMatches($password, array $userInputs = [])
+        public function getMatches(string $password, array $userInputs = []): array
         {
             $matches = [];
-            foreach ($this->getMatchers() as $matcher) {
+            foreach ($this->getMatchers() as $matcher)
+            {
                 $matched = $matcher::match($password, $userInputs);
-                if (is_array($matched) && !empty($matched)) {
+                if (is_array($matched) && !empty($matched))
+                {
                     $matches[] = $matched;
                 }
             }
 
             $matches = array_merge([], ...$matches);
-            self::usortStable($matches, [$this, 'compareMatches']);
+            Utilities::usort($matches, [$this, 'compareMatches']);
 
             return $matches;
         }
@@ -44,11 +44,12 @@
          *
          * @param string $className
          * @return $this
+         * @noinspection PhpUnused
          */
-        public function addMatcher(string $className)
+        public function addMatcher(string $className): Matcher
         {
             if (!is_a($className, MatchInterface::class, true)) {
-                throw new \InvalidArgumentException(sprintf('Matcher class must implement %s', MatchInterface::class));
+                throw new InvalidArgumentException(sprintf('Matcher class must implement %s', MatchInterface::class));
             }
 
             $this->additionalMatchers[$className] = $className;
@@ -56,13 +57,20 @@
             return $this;
         }
 
-
+        /**
+         * @param BaseMatch $a
+         * @param BaseMatch $b
+         * @return mixed
+         */
         public static function compareMatches(BaseMatch $a, BaseMatch $b)
         {
             $beginDiff = $a->begin - $b->begin;
-            if ($beginDiff) {
+
+            if ($beginDiff)
+            {
                 return $beginDiff;
             }
+
             return $a->end - $b->end;
         }
 
@@ -71,7 +79,7 @@
          *
          * @return array Array of classes implementing MatchInterface
          */
-        protected function getMatchers()
+        protected function getMatchers(): array
         {
             return array_merge(
                 self::DEFAULT_MATCHERS,
