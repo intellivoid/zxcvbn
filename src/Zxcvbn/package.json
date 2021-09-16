@@ -38,6 +38,10 @@
         },
         {
             "required": true,
+            "file": "Classes/TimeEstimator.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Utilities.php"
         },
         {
