@@ -18,6 +18,38 @@
     "components": [
         {
             "required": true,
+            "file": "Abstracts/BaseMatch.php"
+        },
+        {
+            "required": true,
+            "file": "Abstracts/Score.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matcher.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matchers/Bruteforce.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Scorer.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Utilities.php"
+        },
+        {
+            "required": true,
+            "file": "Interfaces/MatchInterface.php"
+        },
+        {
+            "required": true,
+            "file": "Objects/GuessableMatchSequence.php"
+        },
+        {
+            "required": true,
             "file": "zxcvbn.php"
         }
     ],
