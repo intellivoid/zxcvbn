@@ -23,7 +23,7 @@
          * @return GuessableMatchSequence Returns an array with these keys: [password, guesses, guesses_log10, sequence]
          * @noinspection PhpUnused
          */
-        public function getMostGuessableMatchSequence(string $password, array $matches, bool $excludeAdditive): GuessableMatchSequence
+        public function getMostGuessableMatchSequence(string $password, array $matches, bool $excludeAdditive=false): GuessableMatchSequence
         {
             $this->password = $password;
             $this->excludeAdditive = $excludeAdditive;

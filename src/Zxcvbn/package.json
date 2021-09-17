@@ -50,6 +50,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/RepeatMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {
