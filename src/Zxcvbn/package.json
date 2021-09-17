@@ -66,6 +66,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/YearMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {
