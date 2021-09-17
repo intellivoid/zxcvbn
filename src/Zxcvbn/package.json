@@ -58,6 +58,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/SequenceMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {
