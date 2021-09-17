@@ -54,6 +54,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/ReverseDictionaryMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {
