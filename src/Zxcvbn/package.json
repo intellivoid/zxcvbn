@@ -62,6 +62,10 @@
         },
         {
             "required": true,
+            "file": "Classes/Matchers/SpatialMatch.php"
+        },
+        {
+            "required": true,
             "file": "Classes/Scorer.php"
         },
         {
