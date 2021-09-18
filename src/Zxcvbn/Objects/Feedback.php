@@ -21,6 +21,16 @@
         public $Suggestions;
 
         /**
+         * @return string|null
+         */
+        public function getWarning(): ?string
+        {
+            if(strlen($this->Warning) == 0)
+                return null;
+            return $this->Warning;
+        }
+
+        /**
          * @param string $warning
          * @param array $Suggestions
          */
@@ -36,8 +46,12 @@
          */
         public function toArray(): array
         {
+            $warning = null;
+            if(strlen($this->Warning) > 0)
+                $warning = $this->Warning;
+
             return [
-                'warning' => $this->Warning,
+                'warning' => $warning,
                 'suggestions' => $this->Suggestions
             ];
         }
