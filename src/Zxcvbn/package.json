@@ -33,6 +33,10 @@
         },
         {
             "required": true,
+            "file": "Abstracts/ScoreDefinitions.php"
+        },
+        {
+            "required": true,
             "file": "Classes/FeedbackUtilities.php"
         },
         {
