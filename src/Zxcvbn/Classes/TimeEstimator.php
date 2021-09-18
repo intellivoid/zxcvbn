@@ -2,31 +2,34 @@
 
     namespace Zxcvbn\Classes;
 
+    use Zxcvbn\Objects\EstimatedAttackTimes;
+
     class TimeEstimator
     {
         /**
          * @param $guesses
-         * @return array
+         * @return EstimatedAttackTimes
          */
-        public function estimateAttackTimes($guesses): array
+        public function estimateAttackTimes($guesses): EstimatedAttackTimes
         {
-            $crack_times_seconds = [
-                'online_throttling_100_per_hour' => $guesses / (100 / 3600),
-                'online_no_throttling_10_per_second' => $guesses / 10,
-                'offline_slow_hashing_1e4_per_second' => $guesses / 1e4,
-                'offline_fast_hashing_1e10_per_second' => $guesses / 1e10
-            ];
+            $return_results = new EstimatedAttackTimes();
+            $return_results->CrackTimesSeconds = new EstimatedAttackTimes\CrackTimes();
 
-            $crack_times_display = array_map(
-                [ $this, 'displayTime' ],
-                $crack_times_seconds
-            );
+            $return_results->CrackTimesSeconds->OnlineThrottling100PerHour = $guesses / (100 / 3600);
+            $return_results->CrackTimesSeconds->OnlineThrottling100PerHourDisplay =
+                $this->displayTime($return_results->CrackTimesSeconds->OnlineThrottling100PerHour);
+            $return_results->CrackTimesSeconds->OnlineNoThrottling10PerSecond = $guesses / 10;
+            $return_results->CrackTimesSeconds->OnlineNoThrottling10PerSecondDisplay =
+                $this->displayTime($return_results->CrackTimesSeconds->OnlineNoThrottling10PerSecond);
+            $return_results->CrackTimesSeconds->OfflineSlowHashing1e4PerSecond = $guesses / 1e4;
+            $return_results->CrackTimesSeconds->OfflineSlowHashing1e4PerSecondDisplay =
+                $this->displayTime($return_results->CrackTimesSeconds->OfflineSlowHashing1e4PerSecond);
+            $return_results->CrackTimesSeconds->OfflineFastHashing1e10PerSecond = $guesses / 1e10;
+            $return_results->CrackTimesSeconds->OfflineFastHashing1e10PerSecondDisplay =
+                $this->displayTime($return_results->CrackTimesSeconds->OfflineFastHashing1e10PerSecond);
 
-            return [
-                'crack_times_seconds' => $crack_times_seconds,
-                'crack_times_display' => $crack_times_display,
-                'score'               => $this->guessesToScore($guesses)
-            ];
+            $return_results->Score = $this->guessesToScore($guesses);
+            return $return_results;
         }
 
         /**

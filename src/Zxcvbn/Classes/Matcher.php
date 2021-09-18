@@ -28,7 +28,7 @@
             SpatialMatch::class,
             YearMatch::class
         ];
-        
+
         private $additionalMatchers = [];
 
         /**

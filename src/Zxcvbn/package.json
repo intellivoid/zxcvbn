@@ -7,7 +7,14 @@
         "organization": "Intellivoid Technologies",
         "description": "Low-Budget Password Strength Estimation",
         "url": "https://github.com/intellivoid/zxcvbn",
-        "dependencies": [],
+        "dependencies": [
+            {
+                "package": "net.intellivoid.timerlib",
+                "version": "latest",
+                "source": "default@github/intellivoid/TimerLib",
+                "required": true
+            }
+        ],
         "configuration": {
             "autoload_method": "generated_spl",
             "main": null,
@@ -30,7 +37,23 @@
         },
         {
             "required": true,
-            "file": "Classes/Matcher.php"
+            "file": "Classes/Utilities.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matchers/SequenceMatch.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matchers/YearMatch.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matchers/RepeatMatch.php"
+        },
+        {
+            "required": true,
+            "file": "Classes/Matchers/DateMatch.php"
         },
         {
             "required": true,
@@ -38,7 +61,7 @@
         },
         {
             "required": true,
-            "file": "Classes/Matchers/DateMatch.php"
+            "file": "Classes/Matchers/ReverseDictionaryMatch.php"
         },
         {
             "required": true,
@@ -50,23 +73,7 @@
         },
         {
             "required": true,
-            "file": "Classes/Matchers/RepeatMatch.php"
-        },
-        {
-            "required": true,
-            "file": "Classes/Matchers/ReverseDictionaryMatch.php"
-        },
-        {
-            "required": true,
-            "file": "Classes/Matchers/SequenceMatch.php"
-        },
-        {
-            "required": true,
             "file": "Classes/Matchers/SpatialMatch.php"
-        },
-        {
-            "required": true,
-            "file": "Classes/Matchers/YearMatch.php"
         },
         {
             "required": true,
@@ -74,11 +81,11 @@
         },
         {
             "required": true,
-            "file": "Classes/TimeEstimator.php"
+            "file": "Classes/Matcher.php"
         },
         {
             "required": true,
-            "file": "Classes/Utilities.php"
+            "file": "Classes/TimeEstimator.php"
         },
         {
             "required": true,
@@ -86,7 +93,7 @@
         },
         {
             "required": true,
-            "file": "Objects/Feedback.php"
+            "file": "Objects/CrackTimes.php"
         },
         {
             "required": true,
@@ -94,12 +101,24 @@
         },
         {
             "required": true,
+            "file": "Objects/EstimatedAttackTimes.php"
+        },
+        {
+            "required": true,
+            "file": "Objects/PasswordStrength.php"
+        },
+        {
+            "required": true,
+            "file": "Objects/Feedback.php"
+        },
+        {
+            "required": true,
             "file": "zxcvbn.php"
         }
     ],
     "files": [
+        "package.json",
         "data/adjacency_graphs.json",
-        "data/frequency_lists.json",
-        "package.json"
+        "data/frequency_lists.json"
     ]
 }
