@@ -17,9 +17,9 @@
         public static function match(string $password, array $userInputs = []);
 
         /**
-         * @return integer
+         * @return integer|float
          */
-        public function getGuesses(): int;
+        public function getGuesses();
 
         /**
          * @return float

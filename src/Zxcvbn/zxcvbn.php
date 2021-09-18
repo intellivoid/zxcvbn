@@ -37,7 +37,7 @@
             $this->matcher = new Matcher();
             $this->scorer = new Scorer();
             $this->timeEstimator = new TimeEstimator();
-            $this->feedback = new Feedback();
+            $this->feedback = new FeedbackUtilities();
         }
 
         /**

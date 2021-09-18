@@ -24,7 +24,7 @@
          * @param string $warning
          * @param array $Suggestions
          */
-        public function __construct(string $warning=(string)null, array $Suggestions=[])
+        public function __construct(string $warning='', array $Suggestions=[])
         {
             $this->Warning = $warning;
             $this->Suggestions = $Suggestions;

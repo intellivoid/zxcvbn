@@ -83,8 +83,8 @@
                 $matcher = new Matcher();
 
                 $baseAnalysis = $scorer->getMostGuessableMatchSequence($repeatedChar, $matcher->getMatches($repeatedChar));
-                $baseMatches = $baseAnalysis['sequence'];
-                $baseGuesses = $baseAnalysis['guesses'];
+                $baseMatches = $baseAnalysis->Sequence;
+                $baseGuesses = $baseAnalysis->Guesses;
 
                 $repeatCount = mb_strlen($match[0]['token']) / mb_strlen($repeatedChar);
 

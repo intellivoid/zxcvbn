@@ -146,6 +146,8 @@ namespace Zxcvbn\Classes\Matchers;
                         $curChar = mb_substr($password, $j, 1);
                         foreach ($adjacents as $adj)
                         {
+                            if($adj == null)
+                                continue;
                             $curDirection += 1;
                             $curCharPos = static::indexOf($adj, $curChar);
                             if ($adj !== null && $curCharPos !== -1)
