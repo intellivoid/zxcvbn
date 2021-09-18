@@ -6,11 +6,29 @@
 
     use InvalidArgumentException;
     use Zxcvbn\Abstracts\BaseMatch;
+    use Zxcvbn\Classes\Matchers\DateMatch;
+    use Zxcvbn\Classes\Matchers\DictionaryMatch;
+    use Zxcvbn\Classes\Matchers\L33tMatch;
+    use Zxcvbn\Classes\Matchers\RepeatMatch;
+    use Zxcvbn\Classes\Matchers\ReverseDictionaryMatch;
+    use Zxcvbn\Classes\Matchers\SequenceMatch;
+    use Zxcvbn\Classes\Matchers\SpatialMatch;
+    use Zxcvbn\Classes\Matchers\YearMatch;
     use Zxcvbn\Interfaces\MatchInterface;
 
     class Matcher
     {
-        private const DEFAULT_MATCHERS = [];
+        private const DEFAULT_MATCHERS = [
+            DateMatch::class,
+            DictionaryMatch::class,
+            ReverseDictionaryMatch::class,
+            L33tMatch::class,
+            RepeatMatch::class,
+            SequenceMatch::class,
+            SpatialMatch::class,
+            YearMatch::class
+        ];
+        
         private $additionalMatchers = [];
 
         /**
